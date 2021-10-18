@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -61,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         #This change tells Django to look in the root template directory for the error page templates.
-        'DIRS': [os.path.join(BASE_DIR,'learning_log/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'learning_log/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,7 +139,6 @@ BOOTSTRAP3 = {
     'include_jquery' : True,
 }
 # Heroku settings
-import os
 if os.getcwd() == '/app':
     import dj_database_url
     DATABASES = {
