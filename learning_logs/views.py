@@ -1,5 +1,5 @@
 # from django.http.response import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 #decorator libraey applied to the function to change the behaveior
 from django.contrib.auth.decorators import login_required
@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect, Http404
 
 from .forms import TopicForm, EntryForm
 from .models import Topic, Entry
+
 # Create your views here.
 
 def index(request):
@@ -24,7 +25,8 @@ def topics(request):
 
 @login_required
 def topic(request, topic_id):
-   topic = Topic.objects.get(id = topic_id)
+  # topic = Topic.objects.get(id = topic_id)
+   topic = get_object_or_404(Topic, id = topic_id)
    # Make sure the topic belongs to the current user.
    check_topic_owner(request,topic)
 
