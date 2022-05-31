@@ -1,6 +1,6 @@
 """define urls pattern for learing logs"""
 #from django import urls
-from django.conf.urls import url
+#from django.conf.urls import  as url
 from django.urls import path, include
 
 from learning_logs.models import Topic
